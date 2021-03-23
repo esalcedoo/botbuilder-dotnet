@@ -166,13 +166,13 @@ steps:
     FacebookTestBotFacebookAppSecret: $(FacebookTestBotFacebookAppSecret)
     FacebookTestBotSenderId: $(FacebookTestBotSenderId)
 
-- task: AzureCLI@1
-  displayName: 'Delete Azure resources'
-  inputs:
-    azureSubscription: '$(AzureSubscription)'
-    scriptLocation: inlineScript
-    inlineScript: 'call az group delete -n "$(BotGroup)" --yes'
-  condition: and(always(), ne(variables['DeleteResourceGroup'], 'false'), ne(variables.InvalidVariables, 'true'))
+# - task: AzureCLI@1
+#   displayName: 'Delete Azure resources'
+#   inputs:
+#     azureSubscription: '$(AzureSubscription)'
+#     scriptLocation: inlineScript
+#     inlineScript: 'call az group delete -n "$(BotGroup)" --yes'
+#   condition: and(always(), ne(variables['DeleteResourceGroup'], 'false'), ne(variables.InvalidVariables, 'true'))
 
 - script: |
    cd ..
