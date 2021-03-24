@@ -142,10 +142,10 @@ steps:
     SlackClientSigningSecret: $(SlackTestBotSlackClientSigningSecret)
     SlackVerificationToken: $(SlackTestBotSlackVerificationToken)
 
-- task: AzureCLI@1
-  displayName: 'Delete Resources'
-  inputs:
-    azureSubscription: $(AzureSubscription)
-    scriptLocation: inlineScript
-    inlineScript: 'call az group delete -n "$(BotGroup)" --yes'
-  condition: and(always(), ne(variables['DeleteResourceGroup'], 'false'))
+# - task: AzureCLI@1
+#   displayName: 'Delete Resources'
+#   inputs:
+#     azureSubscription: $(AzureSubscription)
+#     scriptLocation: inlineScript
+#     inlineScript: 'call az group delete -n "$(BotGroup)" --yes'
+#   condition: and(always(), ne(variables['DeleteResourceGroup'], 'false'))
