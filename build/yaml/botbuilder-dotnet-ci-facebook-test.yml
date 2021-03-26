@@ -149,10 +149,10 @@ steps:
 - task: AzureCLI@1
   displayName: 'Deploy the bot'
   inputs:
-    azureSubscription: $(AzureSubscription)
-    scriptLocation: inlineScript
-    inlineScript: |
-     call az webapp deployment source config-zip --resource-group "$(BotGroup)" --name "$(BotName)" --src "$(System.DefaultWorkingDirectory)\tests\Adapters\Microsoft.Bot.Builder.Adapters.Facebook.PrimaryTestBot\PublishedBot\PublishedBot.zip"
+     azureSubscription: $(AzureSubscription)
+     scriptLocation: inlineScript
+     inlineScript: |
+      call az webapp deployment source config-zip --resource-group "$(BotGroup)" --name "$(BotName)" --src "$(System.DefaultWorkingDirectory)\tests\Adapters\Microsoft.Bot.Builder.Adapters.Facebook.PrimaryTestBot\PublishedBot\PublishedBot.zip"
 
 - task: DotNetCoreCLI@2
   displayName: 'dotnet test'
