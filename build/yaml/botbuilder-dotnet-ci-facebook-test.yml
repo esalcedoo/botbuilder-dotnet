@@ -154,17 +154,17 @@ steps:
      inlineScript: |
       call az webapp deployment source config-zip --resource-group "$(BotGroup)" --name "$(BotName)" --src "$(System.DefaultWorkingDirectory)\tests\Adapters\Microsoft.Bot.Builder.Adapters.Facebook.PrimaryTestBot\PublishedBot\PublishedBot.zip"
 
-- task: DotNetCoreCLI@2
-  displayName: 'dotnet test'
-  inputs:
-    command: test
-    projects: '$(System.DefaultWorkingDirectory)\FunctionalTests\Microsoft.Bot.Builder.FunctionalTests\Microsoft.Bot.Builder.FunctionalTests.csproj'
-    arguments: '-v n --configuration $(BuildConfiguration) --filter FacebookChatTest'
-  env:
-    BOT_ENDPOINT: https://$(BotName).azurewebsites.net/api/messages
-    FacebookTestBotFacebookAccessToken: $(FacebookTestBotFacebookAccessToken)
-    FacebookTestBotFacebookAppSecret: $(FacebookTestBotFacebookAppSecret)
-    FacebookTestBotSenderId: $(FacebookTestBotSenderId)
+# - task: DotNetCoreCLI@2
+#   displayName: 'dotnet test'
+#   inputs:
+#     command: test
+#     projects: '$(System.DefaultWorkingDirectory)\FunctionalTests\Microsoft.Bot.Builder.FunctionalTests\Microsoft.Bot.Builder.FunctionalTests.csproj'
+#     arguments: '-v n --configuration $(BuildConfiguration) --filter FacebookChatTest'
+#   env:
+#     BOT_ENDPOINT: https://$(BotName).azurewebsites.net/api/messages
+#     FacebookTestBotFacebookAccessToken: $(FacebookTestBotFacebookAccessToken)
+#     FacebookTestBotFacebookAppSecret: $(FacebookTestBotFacebookAppSecret)
+#     FacebookTestBotSenderId: $(FacebookTestBotSenderId)
 
 # - task: AzureCLI@1
 #   displayName: 'Delete Azure resources'
